@@ -1,14 +1,31 @@
 import './App.scss';
 import React, { useState } from "react";
 import Homepage from './Pages/Homepage';
+import SetUpName from './Pages/SetUpName';
+
+
 const userInfo = {};
+
 function App() {
-  const updateName = (data) => {
-    userInfo.username = data;
+  const [username, setUsername] = useState("");
+
+  const updateName = (username) => {
+    setUsername(username);
+    userInfo.username = username;
+    console.log("userInfo", userInfo)
+    console.log("username", username)
   }
+
+  let body;
+  if (username === "") {
+    body = (<SetUpName onUpdateName={updateName} />)
+  } else {
+    body = <Homepage userInfo={userInfo} />
+  }
+
   return (
     <div className="App">
-      <Homepage onUpdateName={updateName} userInfo={userInfo} />
+      {body}
     </div>
   );
 }
