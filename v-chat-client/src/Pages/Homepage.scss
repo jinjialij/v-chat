@@ -1,0 +1,28 @@
+@use '../styles/variables.scss';
+
+.homepage-body {
+  background-color: variables.$primary-background-color;
+  height: 100vh;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  font-size: 3.5rem;
+}
+
+li {
+  padding-bottom: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:active,
+a:hover {
+  color: white;
+  font-weight: bold;
+}

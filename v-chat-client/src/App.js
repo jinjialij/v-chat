@@ -2,7 +2,11 @@ import './App.scss';
 import React, { useState } from "react";
 import Homepage from './Pages/Homepage';
 import SetUpName from './Pages/SetUpName';
+import NewCall from './Pages/NewCall';
+import JoinCall from './Pages/JoinCall';
+import TestMedia from "./Pages/TestMedia";
 
+import { Switch, Route } from "react-router-dom";
 
 const userInfo = {};
 
@@ -26,6 +30,20 @@ function App() {
   return (
     <div className="App">
       {body}
+      <Switch>
+        <Route path="/">
+          {body}
+        </Route>
+        <Route path="/new-call">
+          <NewCall />
+        </Route>
+        <Route path="/join-call">
+          <JoinCall />
+        </Route>
+        <Route path="/test">
+          <TestMedia username={userInfo.username} />
+        </Route>
+      </Switch>
     </div>
   );
 }

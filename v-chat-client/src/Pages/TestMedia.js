@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import VideoConatiner from "../Components/VideoContainer";
 
-const TestMedia = () => {
+const TestMedia = (props) => {
     const userVideo = useRef();
     const [userStream, setUserStream] = useState();
 
@@ -20,7 +20,7 @@ const TestMedia = () => {
 
     return (
         <div>
-            <VideoConatiner username={username} stream={userStream} />
+            <VideoConatiner username={props.username} stream={userStream} />
             <button type="button" onClick={closeHandler} >Close</button>
         </div>
     )
