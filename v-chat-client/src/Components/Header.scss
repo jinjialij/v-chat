@@ -1,6 +1,31 @@
-h1 {
+.header-h1 {
   color: white;
   display: inline-block;
-  margin: 10% 70% 5% 15%;
+  margin: 5% 70% 3% 5%;
   font-size: 3rem;
+}
+
+.header-ul {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-li {
+  padding-top: 2rem;
+  padding-right: 4rem;
+}
+
+.header-a {
+  text-decoration: none;
+  color: white;
+}
+
+a:active,
+a:hover {
+  color: white;
+  font-weight: bold;
 }

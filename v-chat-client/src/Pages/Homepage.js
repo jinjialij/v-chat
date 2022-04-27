@@ -12,7 +12,7 @@ const Homepage = (props) => {
 
     if (userInfo.username) {
         body = (<div className="homepage-body">
-            <Header userInfo={props.userInfo} />
+            <Header className userInfo={userInfo} />
             <div>
                 <ul>
                     <li><Link to="/newCall">Create a call</Link></li>
