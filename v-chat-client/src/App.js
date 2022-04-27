@@ -1,12 +1,14 @@
 import './App.scss';
 import React, { useState } from "react";
-import Homepage from './Pages/Homepage';
+
+import Header from './Components/Header';
 import SetUpName from './Pages/SetUpName';
+import Homepage from './Pages/Homepage';
 import NewCall from './Pages/NewCall';
 import JoinCall from './Pages/JoinCall';
 import TestMedia from "./Pages/TestMedia";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 
 const userInfo = {};
 
@@ -19,28 +21,36 @@ function App() {
     console.log("userInfo", userInfo)
     console.log("username", username)
   }
+  // let body;
 
-  let body;
-  if (username === "") {
-    body = (<SetUpName onUpdateName={updateName} />)
-  } else {
-    body = <Homepage userInfo={userInfo} />
-  }
+  // if (userInfo.username) {
+  //   body = (<div className="homepage-body">
+  //     <Header userInfo={userInfo} />
+  //     <div>
+  //       <ul>
+  //         <li><Link to="/newCall">Create a call</Link></li>
+  //         <li><Link to="/joinCall">Join a call</Link></li>
+  //         <li><Link to="/testMedia">Test your Mic and Camera</Link></li>
+  //       </ul>
+  //     </div>
+  //   </div >);
+  // } else {
+  //   body = (<SetUpName onUpdateName={updateName} />);
+  // }
 
   return (
     <div className="App">
-      {body}
       <Switch>
-        <Route path="/">
-          {body}
+        <Route path="/" exact={true}>
+          <Homepage userInfo={userInfo} onUpdateName={updateName} />
         </Route>
-        <Route path="/new-call">
+        <Route path="/newCall">
           <NewCall />
         </Route>
-        <Route path="/join-call">
+        <Route path="/joinCall">
           <JoinCall />
         </Route>
-        <Route path="/test">
+        <Route path="/testMedia">
           <TestMedia username={userInfo.username} />
         </Route>
       </Switch>

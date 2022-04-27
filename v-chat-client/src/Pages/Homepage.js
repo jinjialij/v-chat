@@ -1,30 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+import SetUpName from './SetUpName';
 import Header from "../Components/Header";
-import NewCall from "./NewCall";
-import JoinCall from "./JoinCall";
-import TestMedia from "./TestMedia";
 
 import './Homepage.scss';
 
 const Homepage = (props) => {
+    const userInfo = props.userInfo;
+    let body;
 
-    return (
-        <div className="homepage-body">
+    if (userInfo.username) {
+        body = (<div className="homepage-body">
             <Header userInfo={props.userInfo} />
             <div>
                 <ul>
-                    <li><Link to="/new-call">Create a call</Link></li>
-                    <li><Link to="/join-call">Join a call</Link></li>
-                    <li><Link to="/test">Test your Mic and Camera</Link></li>
+                    <li><Link to="/newCall">Create a call</Link></li>
+                    <li><Link to="/joinCall">Join a call</Link></li>
+                    <li><Link to="/testMedia">Test your Mic and Camera</Link></li>
                 </ul>
-
             </div>
-        </div >
+        </div >);
+    } else {
+        body = (<SetUpName onUpdateName={props.onUpdateName} />);
+    }
 
-
-    )
+    return (body);
 }
 
 export default Homepage;
