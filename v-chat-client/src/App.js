@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="container-fluid App" >
       <Switch>
         <Route path="/" exact>
           <Homepage userInfo={userInfo} onUpdateName={updateName} />

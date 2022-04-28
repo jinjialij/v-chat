@@ -24,7 +24,7 @@ const TestMedia = (props) => {
     return (
         <div>
             <VideoConatiner username={props.username} stream={userStream} />
-            <button type="button" onClick={closeHandler} >Close</button>
+            <button type="button" className="btn btn-primary btn-lg my-5" onClick={closeHandler} >Close</button>
         </div>
     )
 }

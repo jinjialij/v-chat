@@ -19,8 +19,8 @@ const SetUpName = (props) => {
     return (
         <form onSubmit={submitHandler}>
             <label htmlFor="username" className="name-label">Set a Name</label>
-            <input type="text" name="username" value={username} onChange={usernameHandler} />
-            <button type="submit">Start</button>
+            <input className="form-control form-control-lg my-3" type="text" name="username" value={username} onChange={usernameHandler} ></input>
+            <button type="submit" className="btn btn-primary btn-lg">Start</button>
         </form>)
 }
 

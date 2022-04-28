@@ -13,13 +13,17 @@ const Homepage = (props) => {
     if (userInfo.username) {
         body = (<div className="homepage-body">
             <Header className userInfo={userInfo} />
-            <div>
-                <ul>
-                    <li><Link to="/newCall">Create a call</Link></li>
-                    <li><Link to="/joinCall">Join a call</Link></li>
-                    <li><Link to="/testMedia">Test your Mic and Camera</Link></li>
-                </ul>
-            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <Link to="/newCall" className="links">Create a call</Link>
+                </li>
+                <li class="nav-item">
+                    <Link to="/joinCall" className="links">Join a call</Link>
+                </li>
+                <li class="nav-item">
+                    <Link to="/testMedia" className="links">Test your Mic and Camera</Link>
+                </li>
+            </ul>
         </div >);
     } else {
         body = (<SetUpName onUpdateName={props.onUpdateName} />);
